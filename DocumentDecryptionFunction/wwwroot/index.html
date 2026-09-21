@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Decryption Tool</title>
+    <link rel="stylesheet" href="styles.css" />
+    <base href="/dotnet-document-decryption-azure-functions/" />
+</head>
+<body>
+    <div class="app">
+
+        <!-- Header -->
+        <header class="hero">
+            <div class="hero-icon" aria-hidden="true">🔐</div>
+
+            <h1>Document Decryption Tool</h1>
+
+            <p class="subtitle">
+                Remove password protection from PDF and Excel documents securely.
+                Upload your file, enter the password, and download the unlocked version instantly.
+            </p>
+        </header>
+
+        <!-- Main Card -->
+        <main class="card">
+            <form id="decrypt-form" novalidate>
+
+                <!-- File Upload -->
+                <div class="field">
+                    <label for="document-file" class="label">
+                        Upload Document
+                    </label>
+
+                    <div class="upload-row">
+                        <input id="document-file"
+                               name="file"
+                               type="file"
+                               accept=".pdf,.xlsx,.xls,application/pdf,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                               hidden />
+
+                        <button type="button"
+                                class="btn-upload"
+                                id="upload-btn">
+                            <span class="btn-upload-icon">⬆</span>
+                            <span class="btn-upload-label">
+                                Choose File
+                            </span>
+                        </button>
+
+                        <div class="upload-status" id="upload-status">
+                            <span id="upload-status-text">
+                                No file selected
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="dropzone" id="dropzone">
+                        <span class="dz-icon">📁</span>
+                        <p class="dropzone-text">
+                            Drag and drop a PDF or Excel file here
+                        </p>
+                    </div>
+
+                    <p class="hint">
+                        Supported formats:
+                        <strong>PDF</strong>,
+                        <strong>Excel (.xlsx, .xls)</strong>
+                    </p>
+                </div>
+
+                <!-- Password -->
+                <div class="field">
+                    <label for="password" class="label">
+                        Document Password
+                    </label>
+
+                    <div class="input-wrap">
+                        <input id="password"
+                               name="password"
+                               type="password"
+                               autocomplete="off"
+                               placeholder="Enter document password" />
+
+                        <button type="button"
+                                class="toggle-eye"
+                                id="toggle-eye"
+                                aria-label="Show Password">
+                            👁
+                        </button>
+                    </div>
+
+                    <p class="hint">
+                        Enter the password used to protect the document.
+                        If the document only has permission restrictions,
+                        the password field may be left empty.
+                    </p>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit"
+                        class="btn-primary"
+                        id="submit-btn">
+
+                    <span class="btn-icon">🔓</span>
+                    <span class="btn-label">
+                        Decrypt Document
+                    </span>
+
+                    <span class="spinner" hidden></span>
+                </button>
+
+                <!-- Result Status -->
+                <div class="status" id="status" hidden></div>
+
+            </form>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>
+                Powered by <strong>Syncfusion Document Libraries</strong>
+            </p>
+
+            <p>
+                Your files are processed securely and are not permanently stored.
+            </p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
