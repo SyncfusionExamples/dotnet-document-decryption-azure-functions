@@ -118,18 +118,22 @@ public class Function1
                 {
                     using var inputStream = new MemoryStream(fileBytes);
 
+                    //Load the PDF file with password
                     using var loadedDocument =
                         new PdfLoadedDocument(inputStream, password);
 
+                    //Set the security permissions to defaul
                     loadedDocument.Security.Permissions =
                         PdfPermissionsFlags.Default;
 
+                    //Set the owner and user password to empty string to remove the password protection
                     loadedDocument.Security.OwnerPassword =
                         string.Empty;
 
                     loadedDocument.Security.UserPassword =
                         string.Empty;
 
+                    //Save the decrypted PDF document to the output stream
                     loadedDocument.Save(outputStream);
                 }
                 catch
@@ -168,6 +172,7 @@ public class Function1
             {
                 try
                 {
+                    //Initialize the ExcelEngine
                     using ExcelEngine excelEngine = new ExcelEngine();
 
                     IApplication application =
@@ -179,6 +184,7 @@ public class Function1
                     using var inputStream =
                         new MemoryStream(fileBytes);
 
+                    //Open the Excel workbook with password
                     IWorkbook workbook =
                         application.Workbooks.Open(
                             inputStream,
@@ -186,10 +192,10 @@ public class Function1
                             false,
                             password);
 
+                    //Remove the password protection by setting the PasswordToOpen property to an empty string
                     workbook.PasswordToOpen = string.Empty;
-
+                    //Save the decrypted Excel workbook to the output stream
                     workbook.SaveAs(outputStream);
-
                     workbook.Close();
                 }
                 catch
