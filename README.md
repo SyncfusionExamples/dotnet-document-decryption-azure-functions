@@ -122,27 +122,6 @@ file       - PDF or Excel document
 password   - Document password
 ```
 
-### Example
-
-```http
-POST /api/DecryptDocument
-Content-Type: multipart/form-data
-```
-
-## Default Sample Files
-
-| File | Default Password |
-| ------ | ------ |
-| `Input.pdf` | `syncfusion` |
-
-If no password is supplied, the application attempts to use the default password:
-
-```text
-syncfusion
-```
-
-for the bundled sample PDF.
-
 ## Security Notes
 
 * Documents are processed in memory.
