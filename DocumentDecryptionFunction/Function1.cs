@@ -20,7 +20,7 @@ public class Function1
         [HttpTrigger(
         AuthorizationLevel.Anonymous,
         "post",
-        Route = "api/DecryptDocument")]
+        Route = "dotnet-document-decryption-azure-functions/api/DecryptDocument")]
     HttpRequestData req)
     {
         string? password = null;

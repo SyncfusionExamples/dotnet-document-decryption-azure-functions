@@ -2,7 +2,8 @@
     "use strict";
 
     // The server-side function is registered with Route = "DecryptDocument".
-    const DECRYPT_URL = `${window.location.origin}/api/DecryptDocument`;
+    // const DECRYPT_URL = `${window.location.origin}/api/DecryptDocument`;
+    const DECRYPT_URL = `./api/DecryptDocument`;
     const MAX_BYTES = 25 * 1024 * 1024; // 25 MB
 
     const ALLOWED_EXTENSIONS = [".pdf", ".xlsx", ".xls"];
